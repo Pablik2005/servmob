@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "Algerian";
+  src: local("Algerian"),
+   url("./res/Algerian-Regular.ttf") format("truetype");
+  font-weight: bold;
+  }

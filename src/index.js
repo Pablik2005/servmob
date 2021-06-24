@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import './res/Algerian-Regular.ttf';
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
