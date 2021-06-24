@@ -6,26 +6,23 @@ import { useState } from 'react';
 
 const NewTask = () => {
 
+    const [picture, setPicture] = useState('');
     const [imgs, setImgs] = useState([]);
-    const [imgCounter, setImgCounter] = useState([]);
 
-    const test = () =>{
-        console.log(imgCounter);
-        console.log(imgs);
-    }
 
     const delIMG = (index) => {
         console.log("sas");
     }
 
     const selectIMG = () =>{
+        
         let input = document.getElementById("inputIMG");
         input.setAttribute("accept", ".bmp, .gif, .ico, .cur, .jpg, .jpeg, .jfif, .pjpeg, .pjp");
-        input.addEventListener("change", addIMG(input), false);
+        input.addEventListener("change", addIMG, false);
         input.click();        
     }
 
-    const addIMG = (input) =>{
+    const addIMG = () =>{
 
         var reader = new FileReader();
         reader.addEventListener("load", function(){
@@ -33,8 +30,8 @@ const NewTask = () => {
             setImgs([...imgs, reader.result]);
           }, false);
 
-        if(input.files[0])
-            reader.readAsDataURL(input.files[0]);
+        if(picture)
+            reader.readAsDataURL(picture);
     }
 
     return ( 
@@ -79,8 +76,7 @@ const NewTask = () => {
                 
                 </Grid>
             </Paper>
-            <Button onClick={test}> TEst </Button>
-            <input id="inputIMG" type="file" style={{display: "none"}}/>
+            <input id="inputIMG" type="file" style={{display: "none"}} onChange={(e)=>{setPicture(e.target.files[0])}}/>
         </div>
      );
 }
